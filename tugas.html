@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tugas Implementasi Interface</title>
+</head>
+<body>
+<form name="formTugas" id="tugasku" action="" onsubmit="return validateForm()" method="POST">
+<input type="text" name="username" id="username"
+placeholder="Username" ><br>
+<input type="password" name="password" id="pass"
+placeholder="Password" pattern="(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{4,}" title="Password min 4 digit harus ada huruf besar dan angka" required><br>
+<input type="password" name="repeat" id="repeat" placeholder="Ulangi
+Password"><br>
+<input type="text" name="email" id="email" placeholder="Email"><br>
+<input type=”text” name="telp" id="telp" placeholder=”Nomor
+Telpon”><br>
+<textarea id="alamat" style="width: 167px;"></textarea><br>
+
+<input type="submit" name="" value="submit">
+</form>
+
+<script type="text/javascript">
+function validateForm(){
+var username = document.formTugas.username.value;
+var pass = document.getElementById('pass').value;
+var repeat = document.getElementById('repeat').value;
+var rs = document.formTugas.email.value;
+var atps=rs.indexOf("@");
+var dots=rs.lastIndexOf(".");
+var telp = document.formTugas.telp.value;
+var alamat = document.formTugas.alamat.value;
+if(username.length <3 || username.length >15){
+alert("Username harus 3-15 karakter");
+return false;
+}
+         if (pass != repeat) {
+                alert("Password Tidak Sama!!");
+          }
+
+
+    
+	if (atps<1 || dots<atps+2 || dots+2>=rs.length) {
+		alert("Alamat email tidak valid.");
+		return false;
+	}
+
+	if(telp.length <10 || telp.length >12){
+alert("Nommor harus 10-12 digit");
+return false;
+}
+
+	
+if(alamat == ""){
+alert("alamat tidak boleh kosong");
+return false;
+}
+
+}
+
+
+</script>
+</body>
+</html>
